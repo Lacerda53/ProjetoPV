@@ -4,17 +4,22 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   Text,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 import colors from "../styles/colors";
 
-interface IButtonProps extends TouchableOpacityProps {
+type IButtonProps = TouchableOpacityProps & {
   title: string;
-}
+};
+
 export function ButtonMain({ title, disabled = false, ...rest }: IButtonProps) {
   return (
     <TouchableOpacity style={styles.container} activeOpacity={0.7} {...rest}>
-      {disabled ? <ActivityIndicator color={colors.white} size="large" /> : <Text style={styles.text}>{title.toUpperCase()}</Text>}
+      {disabled ? (
+        <ActivityIndicator color={colors.white} size="large" />
+      ) : (
+        <Text style={styles.text}>{title.toUpperCase()}</Text>
+      )}
     </TouchableOpacity>
   );
 }
