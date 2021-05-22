@@ -3,6 +3,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import { Home } from "../pages/Home";
 import { AntDesign } from "@expo/vector-icons";
 import colors from "../styles/colors";
+import { Profile } from "../pages/Profile";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -11,7 +12,7 @@ export function BottomNavigationRoutes() {
     <Tab.Navigator
       initialRouteName="Home"
       activeColor={colors.primary}
-      barStyle={{ backgroundColor: "#D2DCEB" }}
+      barStyle={{ backgroundColor: "#D2DCEB", height: 60 }}
     >
       <Tab.Screen
         name="Home"
@@ -41,7 +42,7 @@ export function BottomNavigationRoutes() {
           ),
         }}
         name="Profile"
-        component={Home}
+        component={Profile}
       />
     </Tab.Navigator>
   );
