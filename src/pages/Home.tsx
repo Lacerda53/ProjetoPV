@@ -12,8 +12,11 @@ import colors from "../styles/colors";
 import home1Img from "../assets/home1.png";
 import home2Img from "../assets/home2.png";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Platform } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 
 export function Home() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -23,6 +26,7 @@ export function Home() {
       <View style={styles.body}>
         <TouchableOpacity
           style={[styles.cardMain, { backgroundColor: colors.primary }]}
+          onPress={() => navigation.navigate("MakeAppointment")}
         >
           <Image source={home1Img} style={styles.img} />
           <View style={styles.content}>
@@ -47,6 +51,7 @@ export function Home() {
               backgroundColor: colors.white,
             },
           ]}
+          onPress={() => navigation.navigate("Schedule")}
         >
           <Image source={home2Img} style={styles.img} />
           <View style={styles.content}>
@@ -82,14 +87,13 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: colors.base,
-    fontSize: 16,
+    fontSize: 18,
   },
   scroll: {
     paddingHorizontal: 15,
   },
   body: {
     flex: 1,
-    marginTop: 10,
   },
   cardMain: {
     borderRadius: 10,
